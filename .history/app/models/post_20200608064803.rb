@@ -7,6 +7,7 @@ class Post < ActiveRecord::Base
     def click_bait_title
         if self.title
             if self.title.exclude?("Won't Believe") && self.title.exclude?("Secret") && self.title.exclude?("Top [number]") && self.title.exclude?("Guess")
+                binding.pry
                 errors.add(:title, "isn't clickbait-y enough")
             end
         else
